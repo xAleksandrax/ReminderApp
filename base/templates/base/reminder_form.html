@@ -1,0 +1,50 @@
+{% extends 'base/main.html' %}
+{% block content %}
+<div class="header-reminder">
+    <h3>{% if editing %}Edytuj{% else %}Utwórz{% endif %} przypomnienie</h3>
+</div>
+
+<script src="https://kit.fontawesome.com/a6a48ad58a.js" crossorigin="anonymous"></script>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.title}}
+    {{form.description}}
+    {% if not form.instance.pk %}
+    <label></label>
+    {% endif %}
+    <label></label>
+    <i id="icon" class="fa-regular fa-circle-check" {% if not form.instance.pk %}disabled{% endif %}></i>
+    {{form.complete}}
+    <input class="btn1" type="submit" value="Zapisz">
+</form>
+
+<div class="back">
+    <a class="btn" href="{% url 'reminders' %}">Anuluj</a>
+</div>
+
+<script>
+    const icon = document.getElementById("icon");
+    const completeInput = document.querySelector('input[name="complete"]');
+
+    document.querySelector('input[name="complete"]').addEventListener('change', function() {
+        if (this.checked) {
+            icon.className = "fas fa-check-circle";
+        } else {
+            icon.className = "fa-regular fa-circle-check";
+        }
+    });
+
+    icon.addEventListener('click', function() {
+        if (completeInput.checked) {
+            completeInput.checked = false;
+            icon.className = "fa-regular fa-circle-check";
+        } else {
+            completeInput.checked = true;
+            icon.className = "fas fa-check-circle";
+        }
+    });
+    
+</script>
+
+{% endblock content %}

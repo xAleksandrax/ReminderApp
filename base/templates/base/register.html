@@ -1,0 +1,19 @@
+{% extends 'base/main.html' %}
+{% block content %}
+<h1>Rejestracja</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <label>Nazwa użytkownika</label>
+    {{form.username}}
+    <label>Hasło</label>
+    {{form.password1}}
+    <label>Potwierdź hasło</label>
+    {{form.password2}}
+    <input class="btn2" type="submit" value="Zakładam konto">
+</form>
+
+<div class="underline">
+    <p>Mam już konto <a href="{% url 'login' %}">Zaloguj się</a></p>
+</div>
+{% endblock content %}

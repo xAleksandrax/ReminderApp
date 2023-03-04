@@ -1,0 +1,13 @@
+{% extends 'base/main.html' %}
+{% block content %}
+<div class="header-reminder">
+    <h1>{{reminder}}</h1>
+</div>
+<div class="date">
+    <h1>Dodano: {{reminder.created}}</h1>
+</div>
+<h2>{{reminder.description}}</h2>
+<div class="back">
+    <a class="btn" href="{% url 'reminders' %}">Wróć</a>
+</div>
+{% endblock content %}

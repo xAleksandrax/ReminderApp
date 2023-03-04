@@ -1,0 +1,11 @@
+{% extends 'base/main.html' %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <p>Na pewno chcesz usunąć przypomnienie?</p>
+    <input class="btn1" type="submit" value="Usuń"/>
+</form>
+<form>
+    <input class="btn1" type="button" value="Anuluj" onclick="history.go(-1)">
+   </form>
+{% endblock content %}

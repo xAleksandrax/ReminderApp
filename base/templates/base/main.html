@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Przypomnienia</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-EOWy7Yc1Xdib0Klq3h2C3jrZ23opAx2L43xh4e4K/BHyv7pYB17OuE7hflS0Kj1sZlxMFwLOKcON07tIbtx+JQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script>
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollTopBtn").style.display = "block";
+        } else {
+        document.getElementById("scrollTopBtn").style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+
+    <style>
+        :root {
+        --main-color: rgb(156, 145, 132);;
+        --bg-color: rgb(203, 193, 178);
+        --hover-color: rgb(118, 109, 101);
+        --text-area-color: rgb(249, 243, 234);
+        }
+
+        body {
+            background-color:  var(--bg-color);
+            font-family: 'Lobster', cursive;
+            text-align: center;
+        }
+        
+        #arrow-up {
+            font-size: 2rem;
+            color: var(--main-color);
+            cursor: pointer;
+            position: fixed;
+        }
+
+        .container {
+            max-width: 550px;
+            height: auto;
+            margin: auto;
+            background-color: #fff;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 3px solid rgba(255,255,255,0.10);
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+        }
+
+        input, textarea {
+            border-radius: 20px;
+            padding: 10px;
+            border: none;
+            background-color: var(--text-area-color);
+            font-family: 'Lobster', cursive;
+            width: 90%;
+            margin-top: 5px;
+        }
+
+        label {
+            display: block;
+        }
+
+        a, p, h1 {
+            color: rgb(71, 68, 62);
+            text-decoration: none;
+        }
+
+        h2{
+            word-wrap: break-word;
+        }
+
+        .header {
+            display: flex;
+            padding: 15px;
+            border-radius: 20px;
+            background-color: var(--main-color);
+        }
+
+        .header-reminder {
+            background-color: var(--main-color);
+            border-radius: 20px;
+            padding: 2px;
+            color: rgb(71, 68, 62);
+        }
+
+        table {
+            margin-top: 15px;
+            justify-content: center;
+            display: flex;
+            font-size: large;
+        }
+
+        .task-wrapper {
+            display: flex;
+            padding: 20px;
+        }
+
+        #icons {
+            margin-left: auto;
+        }
+
+        #icons a {
+            margin-left: 5px;
+        }
+        
+        .btn, .btn1, .btn2 {
+            background-color: var(--main-color);
+            color: #fff;
+            padding: 0.5rem 1.9rem;
+            border-radius: 27px;
+            justify-content: end;
+            align-items: center;
+            font-size: large;
+            font-family: 'Lobster', cursive;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .btn1, .btn2 {
+            width: 100%;
+            margin-bottom: 5px;
+            margin-top: 7px;
+        }
+
+        .btn2 {
+            margin-top: 10px;
+        }
+
+        .underline a {
+            text-decoration: underline;
+        }
+
+        input[name="complete"] {
+            display: none;
+        }
+
+        .btn:hover, .btn1:hover, .btn2:hover {
+        background-color: var(--hover-color);
+        color: #fff;
+        }
+
+        textarea[name="description"] {
+        resize: none;
+        }
+
+        .date h1{
+            font-size: 15px;
+        }
+
+        .reminder-icon i{
+            margin-right: 5px;
+        }
+
+        .messages {
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--bg-color);
+            border-radius: 20px;
+            animation: fadeOut 4s forwards;
+        }
+
+        .messages li {
+            list-style: none;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>
