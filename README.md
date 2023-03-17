@@ -1,1 +1,3 @@
+Aplikacja Przypomnienia to prosty projekt napisany w języku Python z wykorzystaniem frameworka Django. Pozwala ona użytkownikom na dodawanie, przeglądanie, edycję i usuwanie przypomnień. Użytkownik po zalogowaniu może dodawać nowe przypomnienia, wprowadzając tytuł i opis. Każde przypomnienie posiada również informację o dacie utworzenia oraz o tym, czy zostało już wykonane. Przypomnienia są przechowywane w bazie danych i przypisane do konkretnego użytkownika.
 
+Aplikacja Przypomnienia wykorzystuje mechanizmy uwierzytelniania i autoryzacji Django, co oznacza, że użytkownicy muszą się zalogować, aby móc dodawać i edytować przypomnienia. Ponadto, każdy użytkownik może przeglądać tylko swoje przypomnienia. Aplikacja jest również zabezpieczona przed atakami CSRF oraz XSS.
